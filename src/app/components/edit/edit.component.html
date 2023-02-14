@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-7 mb-5">
+            <h1><span class="badge badge-primary bg-success">Edit User</span></h1>
+        </div>
+        <div class="col-7">
+            <form [formGroup]="addForm" (submit)="onSubmit()">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter Name">
+                    <small *ngIf="addForm.controls['name'].errors" class="form-text text-danger">Name is
+                        required.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" type="email" class="form-control" id="email"
+                        placeholder="Enter email">
+                    <small *ngIf="addForm.controls['email'].errors" class="form-text text-danger">Please enter valid
+                        email.</small>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input formControlName="phone" type="tel" class="form-control" id="phone" placeholder="Enter Phone">
+                    <small *ngIf="addForm.controls['phone'].errors" class="form-text text-danger">Phone no should be 10
+                        digit long.</small>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="exampleInputPassword1">Image</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" type="file">
+                </div> -->
+                <br>
+                <file-upload (onFileUpload)="onFileUpload($event)"></file-upload>
+
+                <br>
+                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary mt-3">Submit</button>
+                <button type="button" routerLink="../" class="btn btn-primary mt-3">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

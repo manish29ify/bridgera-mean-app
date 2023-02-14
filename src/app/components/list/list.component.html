@@ -1,0 +1,43 @@
+<div class="container">
+    <h1><span class="badge badge-primary bg-success">Bridgera MEAN App</span></h1>
+    <div class="d-flex flex-row-reverse bd-highlight mt-3">
+        <div class="p-2 bd-highlight">
+            <button type="button" routerLink="add" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userList">
+                        <td>{{item.name}} </td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>
+                            <img class="user-img" [src]="item.image" [alt]="item.image">
+
+                        </td>
+                        <td>
+
+                            <button (click)="deleteUser(item)" class="btn btn-primary">Delete</button>
+
+                            <button routerLink="edit/{{item._id}}" class="btn btn-primary">Edit</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
